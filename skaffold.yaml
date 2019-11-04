@@ -1,0 +1,8 @@
+apiVersion: skaffold/v1beta17
+kind: Config
+metadata:
+  name: spring-portti
+deploy:
+  kubectl:
+    manifests:
+    - manifests/deployment.yaml
