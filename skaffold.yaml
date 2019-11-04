@@ -2,6 +2,10 @@ apiVersion: skaffold/v1beta17
 kind: Config
 metadata:
   name: spring-portti
+build:
+  artifacts:
+  - image: kerminator/spring-portti
+    jib: {}
 deploy:
   kubectl:
     manifests:
