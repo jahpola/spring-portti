@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.0.RELEASE'
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'com.google.cloud.tools.jib' version '1.7.0'
+    id 'com.google.cloud.tools.jib' version '1.8.0'
 	id 'java'
 }
 
@@ -26,7 +26,7 @@ repositories {
 jib.to.image = 'kerminator/spring-portti'
 
 ext {
-	set('springCloudVersion', "Hoxton.RC1")
+	set('springCloudVersion', "Hoxton.RELEASE")
 }
 
 dependencies {
