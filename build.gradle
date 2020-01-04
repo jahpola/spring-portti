@@ -26,13 +26,15 @@ repositories {
 jib.to.image = 'kerminator/spring-portti'
 
 ext {
-	set('springCloudVersion', "Hoxton.RELEASE")
+	set('springCloudVersion', "Hoxton.SR1")
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.cloud:spring-cloud-kubernetes-discovery'
+	implementation 'org.springframework.cloud:spring-cloud-kubernetes-config'
+	//developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

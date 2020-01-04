@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          url-expression: "'http://'+serviceId"
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
+      discovery:
+        filter: "metadata.labels['spring-*']"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      enabled: true
+    restart:
+      enabled: true
+    info:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE  
+    org.springframework.cloud.loadbalancer: TRACE  
+    

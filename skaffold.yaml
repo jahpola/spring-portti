@@ -10,3 +10,8 @@ deploy:
   kubectl:
     manifests:
     - manifests/deployment.yaml
+portForward:
+- resourceType: service
+  resourceName: portti
+  port: 8080 # 
+  localPort: 9000 # *Optional*
