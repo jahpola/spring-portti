@@ -11,7 +11,8 @@ spring:
         mode: polling
         period: 5000
       discovery:
-        filter: "metadata.labels['spring-*']"
+        service-labels:
+          route: true
 
 management:
   endpoints:
