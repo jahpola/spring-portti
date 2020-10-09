@@ -9,7 +9,7 @@ build:
 deploy:
   kubectl:
     manifests:
-    - manifests/deployment.yaml
+    - manifests/*.yaml
 portForward:
 - resourceType: service
   resourceName: portti
