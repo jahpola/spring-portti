@@ -4,7 +4,7 @@ metadata:
   name: spring-portti
 build:
   artifacts:
-  - image: kerminator/spring-portti
+  - image: public.ecr.aws/kerminator/spring-portti
     jib: {}
 deploy:
   kubectl:

@@ -23,7 +23,7 @@ repositories {
 	maven { url 'https://repo.spring.io/milestone' }
 }
 
-jib.to.image = 'kerminator/spring-portti'
+jib.to.image="public.ecr.aws/kerminator/spring-portti:latest"
 
 ext {
 	set('springCloudVersion', "Hoxton.SR9")

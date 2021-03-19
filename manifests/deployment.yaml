@@ -18,7 +18,7 @@ spec:
       serviceAccountName: portti
       containers:
       - name: portti
-        image: kerminator/spring-portti
+        image: public.ecr.aws/kerminator/spring-portti:latest
         resources:
           limits:
             cpu: 1000m
