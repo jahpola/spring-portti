@@ -39,6 +39,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	compile 'io.micrometer:micrometer-registry-prometheus'
+	compile "org.springframework.cloud:spring-cloud-starter-sleuth"
 }
 
 dependencyManagement {
