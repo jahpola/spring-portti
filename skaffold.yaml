@@ -1,17 +1,28 @@
-apiVersion: skaffold/v1beta17
+apiVersion: skaffold/v2beta13
 kind: Config
 metadata:
   name: spring-portti
 build:
   artifacts:
-  - image: public.ecr.aws/kerminator/spring-portti
-    jib: {}
-deploy:
-  kubectl:
-    manifests:
-    - manifests/*.yaml
+    - image: public.ecr.aws/kerminator/spring-portti
+      jib: {}
+
 portForward:
-- resourceType: service
-  resourceName: portti
-  port: 8080 # 
-  localPort: 9000 # *Optional*
+  - resourceType: service
+    resourceName: portti
+    port: 8080 # 
+    localPort: 9000 # *Optional*
+
+profiles:
+  - name: local
+    deploy:
+      kustomize:
+        paths:
+          - manifests/overlays/local
+      kubeContext: kind
+  - name: playground
+    deploy:
+      kustomize:
+        paths: 
+          - manifests/overlays/dev
+      kubeContext: playground
