@@ -7,7 +7,7 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "'http://'+serviceId"
+          #url-expression: "'http://'+serviceId"
     kubernetes:
       reload:
         enabled: true
@@ -36,7 +36,7 @@ management:
   #     enabled: true
 
 logging:
-  level:
-    org.springframework.cloud.gateway: TRACE  
-    org.springframework.cloud.loadbalancer: TRACE  
+ level:
+   org.springframework.cloud.gateway: TRACE  
+   org.springframework.cloud.loadbalancer: TRACE  
     

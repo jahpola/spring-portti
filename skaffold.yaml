@@ -19,7 +19,7 @@ profiles:
       kustomize:
         paths:
           - manifests/overlays/local
-      kubeContext: kind
+      kubeContext: kind-kind
   - name: playground
     deploy:
       kustomize:
