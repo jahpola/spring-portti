@@ -5,6 +5,8 @@ metadata:
 rules:
 - apiGroups:
   - ""
+  - extensions
+  - apps
   resources:
   - services
   - pods
@@ -14,3 +16,4 @@ rules:
   verbs:
   - get
   - list
+  - watch
