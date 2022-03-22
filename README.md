@@ -1,6 +1,6 @@
 # spring-portti
 
-Spring Cloud Gateway example usimg kubernetes discovery via service labels
+Spring Cloud Gateway example using kubernetes discovery via service labels
 
 ## installation
 1. uses gradlew

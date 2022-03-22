@@ -10,7 +10,7 @@ build:
 portForward:
   - resourceType: service
     resourceName: portti
-    port: 8080 # 
+    port: 8080 #
     localPort: 9000 # *Optional*
 
 profiles:
