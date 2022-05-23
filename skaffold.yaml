@@ -15,11 +15,13 @@ portForward:
 
 profiles:
   - name: local
+    build:
+      local:
+        push: false
     deploy:
       kustomize:
-        paths:
-          - manifests/overlays/local
-      kubeContext: kind-kind
+        paths: ["manifests/overlays/local"]
+      kubeContext: rancher-desktop
   - name: playground
     deploy:
       kustomize:

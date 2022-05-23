@@ -9,24 +9,17 @@ spring:
           enabled: true
           #url-expression: "'http://'+serviceId"
     kubernetes:
-      reload:
-        enabled: true
-        mode: polling
-        period: 5000
-      discovery:
-        service-labels:
-          route: true
+      enabled: false
 
 management:
   endpoints:
     web:
       exposure:
         include: health
-    prometheus: 
-      enabled: true
-  health:
-    probes:
-      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
   # endpoint:
   #   health:
   #     enabled: true
@@ -36,7 +29,20 @@ management:
   #     enabled: true
 
 logging:
- level:
-   org.springframework.cloud.gateway: TRACE  
-   org.springframework.cloud.loadbalancer: TRACE  
-    
+  level:
+    org.springframework.cloud.gateway: TRACE  
+    org.springframework.cloud.loadbalancer: TRACE  
+---
+spring:
+  config:
+    activate:
+      on-profile: kubernetes
+  cloud:
+    kubernetes:
+        reload:
+          enabled: true
+          mode: polling
+          period: 5000
+        discovery:
+          service-labels:
+            route: true
