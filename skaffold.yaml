@@ -12,17 +12,17 @@ portForward:
   port: 8080
   localPort: 9000
 profiles:
-- name: local
-  manifests:
-    kustomize:
-      paths:
-      - manifests/overlays/local
-  deploy:
-    kubeContext: kind-kind
-- name: playground
-  manifests:
-    kustomize:
-      paths:
-      - manifests/overlays/dev
-  deploy:
-    kubeContext: playground
+  - name: local
+    build:
+      local:
+        push: false
+    deploy:
+      kustomize:
+        paths: ["manifests/overlays/local"]
+      kubeContext: rancher-desktop
+  - name: playground
+    deploy:
+      kustomize:
+        paths: 
+          - manifests/overlays/dev
+      kubeContext: playground
