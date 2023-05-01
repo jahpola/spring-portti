@@ -1,18 +1,16 @@
-apiVersion: skaffold/v2beta13
+apiVersion: skaffold/v3alpha1
 kind: Config
 metadata:
   name: spring-portti
 build:
   artifacts:
-    - image: public.ecr.aws/kerminator/spring-portti
-      jib: {}
-
+  - image: public.ecr.aws/kerminator/spring-portti
+    jib: {}
 portForward:
-  - resourceType: service
-    resourceName: portti
-    port: 8080 #
-    localPort: 9000 # *Optional*
-
+- resourceType: service
+  resourceName: portti
+  port: 8080
+  localPort: 9000
 profiles:
   - name: local
     build:
