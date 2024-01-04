@@ -2,14 +2,15 @@ server:
   shutdown: graceful
   
 spring:
+  main:
+    cloud-platform: none
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
           #url-expression: "'http://'+serviceId"
-    kubernetes:
-      enabled: false
+
 
 management:
   endpoints:
@@ -20,18 +21,11 @@ management:
     health:
       probes:
         enabled: true
-  # endpoint:
-  #   health:
-  #     enabled: true
-  #   restart:
-  #     enabled: true
-  #   info:
-  #     enabled: true
 
 logging:
   level:
-    org.springframework.cloud.gateway: TRACE  
-    org.springframework.cloud.loadbalancer: TRACE  
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.loadbalancer: DEBUG
 ---
 spring:
   config:
