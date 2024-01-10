@@ -1,4 +1,4 @@
-apiVersion: skaffold/v3alpha1
+apiVersion: skaffold/v4beta7
 kind: Config
 metadata:
   name: spring-portti
@@ -13,16 +13,18 @@ portForward:
   localPort: 9000
 profiles:
   - name: local
+    activation:
+      - kubeContext: rancher-desktop
     build:
       local:
         push: false
-    deploy:
-      kustomize:
-        paths: ["manifests/overlays/local"]
-      kubeContext: rancher-desktop
-  - name: playground
-    deploy:
+    manifests:
       kustomize:
         paths: 
-          - manifests/overlays/dev
-      kubeContext: playground
+          - manifests/overlays/local
+  # - name: playground
+  #   deploy:
+  #     kustomize:
+  #       paths: 
+  #         - manifests/overlays/dev
+  #     kubeContext: playground

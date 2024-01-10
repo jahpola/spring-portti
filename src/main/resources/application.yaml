@@ -2,21 +2,17 @@ server:
   shutdown: graceful
   
 spring:
-  main:
-    cloud-platform: none
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
-          #url-expression: "'http://'+serviceId"
-
 
 management:
   endpoints:
     web:
       exposure:
-        include: health
+        include: "*"
   endpoint:
     health:
       probes:
@@ -24,19 +20,7 @@ management:
 
 logging:
   level:
+    #org.springframework: DEBUG  
     org.springframework.cloud.gateway: DEBUG
     org.springframework.cloud.loadbalancer: DEBUG
----
-spring:
-  config:
-    activate:
-      on-profile: kubernetes
-  cloud:
-    kubernetes:
-        reload:
-          enabled: true
-          mode: polling
-          period: 5000
-        discovery:
-          service-labels:
-            route: true
+    #org.springframework.cloud: DEBUG

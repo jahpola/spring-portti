@@ -19,13 +19,6 @@ spec:
       containers:
       - name: portti
         image: public.ecr.aws/kerminator/spring-portti:latest
-        resources:
-          limits:
-            cpu: 1000m
-            memory: 1024Mi
-          requests:
-            cpu: 500m
-            memory: 512Mi
         ports:
         - containerPort: 8080
         readinessProbe:
