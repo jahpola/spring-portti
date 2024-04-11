@@ -1,0 +1,30 @@
+apiVersion: skaffold/v4beta7
+kind: Config
+metadata:
+  name: spring-portti
+build:
+  artifacts:
+  - image: public.ecr.aws/kerminator/spring-portti
+    jib: {}
+portForward:
+- resourceType: service
+  resourceName: portti
+  port: 8080
+  localPort: 9000
+profiles:
+  - name: local
+    activation:
+      - kubeContext: rancher-desktop
+    build:
+      local:
+        push: false
+    manifests:
+      kustomize:
+        paths: 
+          - manifests/overlays/local
+  # - name: playground
+  #   deploy:
+  #     kustomize:
+  #       paths: 
+  #         - manifests/overlays/dev
+  #     kubeContext: playground

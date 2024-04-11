@@ -1,0 +1,13 @@
+resources:
+  - deployment.yaml
+  - role.yaml
+  - rolebinding.yaml
+  - sa.yaml
+  - service.yaml
+  - configmap.yaml
+
+commonLabels:
+  app.kubernetes.io/instance: portti
+  app.kubernetes.io/name: portti
+  app.kubernetes.io/version: latest
+  app.kubernetes.io/part-of: otel-demo

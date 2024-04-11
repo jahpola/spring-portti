@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portti
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/tags: Environment=dev,Team=test
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health
+    alb.ingress.kubernetes.io/inbound-cidrs: 91.154.148.242/32
+spec:
+  rules:
+    - host: portti.kube.futucloud.com
+      http:
+        paths:
+          - path: /*
+            backend: 
+              serviceName: portti
+              servicePort: 8080 

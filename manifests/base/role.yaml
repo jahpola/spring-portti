@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role 
+metadata:
+  name: portti
+rules:
+- apiGroups:
+  - ""
+  - extensions
+  - apps
+  resources:
+  - services
+  - pods
+  - configmaps
+  - secrets
+  - endpoints
+  verbs:
+  - get
+  - list
+  - watch
