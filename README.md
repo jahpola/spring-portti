@@ -7,6 +7,7 @@ Spring Cloud Gateway example using kubernetes discovery via service labels
 2. install some local kubernetes 
 3. run skaffold dev
 
+## TODO
 
 ### Neat commands
 show gateway routes:
