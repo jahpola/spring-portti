@@ -22,6 +22,16 @@ profiles:
       kustomize:
         paths: 
           - manifests/overlays/local
+  - name: minikube
+    activation:
+      - kubeContext: minikube
+    build:
+      local:
+        push: true
+    manifests:
+      kustomize:
+        paths:
+          - manifests/overlays/local
   # - name: playground
   #   deploy:
   #     kustomize:

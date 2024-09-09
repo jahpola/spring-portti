@@ -5,3 +5,8 @@ spring:
     kubernetes:
       reload: 
         enabled: true
+
+#management:
+  #otlp:
+  #  tracing:
+  #    endpoint: http://otel-collector.otel-demo.svc.cluster.local:4318/v1/traces
