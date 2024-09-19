@@ -16,14 +16,18 @@ management:
       exposure:
         include: '*'
   endpoint:
+    # For debugging gateway 
+    # gateway:
+    #   enabled: true
     health:
       probes:
         enabled: true
-  otlp:
-    tracing:
-      endpoint: http://otel-collector.otel-demo.svc.cluster.local:4318/v1/traces
-    #logging:
-    #level:
+  #otlp:
+  #  tracing:
+  #    endpoint: http://otel-collector.otel-demo.svc.cluster.local:4318/v1/traces
+# logging:
+#     level:
+#       javax: TRACE
     #org.springframework: DEBUG  
     #org.springframework.cloud.gateway: DEBUG
     #org.springframework.cloud.loadbalancer: DEBUG
