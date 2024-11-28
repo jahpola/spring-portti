@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '3.4.0-RC1'
+	id 'org.springframework.boot' version '3.4.0'
 	id 'io.spring.dependency-management' version '1.1.6'
     //id 'com.google.cloud.tools.jib' version '3.4.2'
 	id "org.sonarqube" version '5.1.0.4882'
@@ -11,8 +11,9 @@ group = 'org.kerminator'
 version = '0.0.1-SNAPSHOT'
 
 java {
-sourceCompatibility = '21'
-targetCompatibility = '21'
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
 }
 
 configurations {
@@ -66,7 +67,7 @@ tasks.named("bootBuildImage") {
 }
 
 ext {
-	set('springCloudVersion', "2024.0.0-M2")
+	set('springCloudVersion', "2024.0.0-RC1")
 }
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -75,6 +76,7 @@ dependencies {
 	implementation 'com.github.ben-manes.caffeine:caffeine:3.1.8'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation "io.micrometer:micrometer-tracing-bridge-otel"
 	implementation "io.opentelemetry:opentelemetry-exporter-otlp"
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'

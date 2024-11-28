@@ -35,7 +35,9 @@ management:
       
   otlp:
    tracing:
-     endpoint: http://otel-collector:4318/v1/traces
+     #endpoint: http://otel-collector:4318/v1/traces
+     endpoint: http://alloy.alloy.svc:12345/
+
 # logging:
 #     level:
 #       javax: TRACE
