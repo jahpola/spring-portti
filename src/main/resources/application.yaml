@@ -9,6 +9,9 @@ spring:
       discovery:
         locator:
           enabled: true
+  threads:
+    virtual:
+      enabled: true
 
 management:
   endpoints:
@@ -41,7 +44,7 @@ management:
 # logging:
 #     level:
 #       javax: TRACE
-    #org.springframework: DEBUG  
-    #org.springframework.cloud.gateway: DEBUG
-    #org.springframework.cloud.loadbalancer: DEBUG
-    #org.springframework.cloud: DEBUG
+        #org.springframework: DEBUG  
+        #org.springframework.cloud.gateway: DEBUG
+        #org.springframework.cloud.loadbalancer: DEBUG
+        #org.springframework.cloud: DEBUG

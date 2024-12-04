@@ -9,3 +9,8 @@ spring:
         all-namespaces: false
         service-labels:
           route: "true"
+
+#management:
+  #otlp:
+  #  tracing:
+  #    endpoint: http://otel-collector.otel-demo.svc.cluster.local:4318/v1/traces
