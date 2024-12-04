@@ -19,13 +19,32 @@ management:
       exposure:
         include: '*'
   endpoint:
+    # For debugging gateway 
+    # gateway:
+    #   enabled: true
     health:
       probes:
         enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+  opentelemetry:
+    resource-attributes:
+      application: ${spring.application.name}
+      cluster: local
+      # Micrometer Metrics configures this attribute with "unknown value".
+      # It should probably be autoconfigured correctly by Spring Boot.
+      "service.name": ${spring.application.name}
+      
+  otlp:
+   tracing:
+     #endpoint: http://otel-collector:4318/v1/traces
+     endpoint: http://alloy.alloy.svc:12345/
 
-    #logging:
-    #level:
-    #org.springframework: DEBUG  
-    #org.springframework.cloud.gateway: DEBUG
-    #org.springframework.cloud.loadbalancer: DEBUG
-    #org.springframework.cloud: DEBUG
+# logging:
+#     level:
+#       javax: TRACE
+        #org.springframework: DEBUG  
+        #org.springframework.cloud.gateway: DEBUG
+        #org.springframework.cloud.loadbalancer: DEBUG
+        #org.springframework.cloud: DEBUG

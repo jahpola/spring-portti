@@ -5,6 +5,10 @@ spring:
     kubernetes:
       reload: 
         enabled: true
+      discovery:
+        all-namespaces: false
+        service-labels:
+          route: "true"
 
 #management:
   #otlp:
