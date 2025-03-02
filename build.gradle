@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '3.4.0'
+	id 'org.springframework.boot' version '3.4.3'
 	id 'io.spring.dependency-management' version '1.1.6'
     //id 'com.google.cloud.tools.jib' version '3.4.2'
 	id "org.sonarqube" version '5.1.0.4882'
@@ -34,7 +34,7 @@ sonarqube {
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
+	maven { url='https://repo.spring.io/milestone' }
 }
 
 /* jib {
@@ -60,7 +60,8 @@ repositories {
 } */
 
 tasks.named("bootBuildImage") {
-	imageName = "public.ecr.aws/kerminator/${project.name}"
+	imageName = "public.ecr.aws/kerminator/spring-${project.name}"
+	createdDate ="now"
 	//environment["BP_JVM_JLINK_ENABLED"] = "true"
 	environment["BP_JVM_VERSION"] = "21"
 	//environment["BP_JVM_CDS_ENABLED"] = "true"

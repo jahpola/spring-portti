@@ -14,3 +14,8 @@ spring:
   #otlp:
   #  tracing:
   #    endpoint: http://otel-collector.otel-demo.svc.cluster.local:4318/v1/traces
+
+logging:
+  structured:
+    format:
+      console: ecs
