@@ -62,10 +62,12 @@ repositories {
 tasks.named("bootBuildImage") {
 	imageName = "public.ecr.aws/kerminator/spring-${project.name}"
 	createdDate ="now"
-	//environment["BP_JVM_JLINK_ENABLED"] = "true"
 	environment["BP_JVM_VERSION"] = "21"
-	//environment["BP_JVM_CDS_ENABLED"] = "true"
+	//environment["BP_JVM_JLINK_ENABLED"] = "true"
+	environment["BP_JVM_CDS_ENABLED"] = "true"
+	environment["BP_SPRING_AOT_ENABLED"]="true"
 	//environment["BP_NATIVE_IMAGE"] = "true"
+	
 }
 
 ext {
@@ -93,4 +95,7 @@ dependencyManagement {
 
 tasks.named("test") {
 	useJUnitPlatform()
+	systemProperties([
+	        'junit.jupiter.execution.parallel.enabled': 'true',
+	])
 }
