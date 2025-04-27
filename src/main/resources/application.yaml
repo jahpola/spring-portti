@@ -36,10 +36,10 @@ management:
       # It should probably be autoconfigured correctly by Spring Boot.
       "service.name": ${spring.application.name}
       
-  otlp:
-   tracing:
+  #otlp:
+   #tracing:
      #endpoint: http://otel-collector:4318/v1/traces
-     endpoint: http://alloy.alloy.svc:12345/
+     #endpoint: http://alloy.alloy.svc:12345/
 
 #logging:
 #  structured:
