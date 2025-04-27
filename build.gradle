@@ -71,7 +71,7 @@ tasks.named("bootBuildImage") {
 }
 
 ext {
-	set('springCloudVersion', "2024.0.0")
+	set('springCloudVersion', "2024.0.1")
 }
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
