@@ -6,9 +6,11 @@ spring:
     name: portti
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
   threads:
     virtual:
       enabled: true
