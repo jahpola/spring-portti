@@ -1,0 +1,100 @@
+schemaVersion: 2.2.0
+metadata:
+  name: spring-portti
+  displayName: Spring Cloud Gateway Portti
+  description: Spring Cloud Gateway application with Kubernetes integration
+  version: 1.0.0
+  projectType: springboot
+  language: java
+  tags:
+    - Java
+    - Spring Boot
+    - Spring Cloud
+    - Kubernetes
+
+components:
+  - name: tools
+    container:
+      image: eclipse/maven-jdk21:latest
+      memoryLimit: 2Gi
+      mountSources: true
+      endpoints:
+        - name: http-portti
+          targetPort: 8080
+          exposure: public
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+
+  - name: m2
+    volume:
+      size: 1Gi
+
+commands:
+  - id: build
+    exec:
+      component: tools
+      commandLine: ./gradlew build
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+        isDefault: true
+
+  - id: run
+    exec:
+      component: tools
+      commandLine: ./gradlew bootRun
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: run
+        isDefault: true
+
+  - id: test
+    exec:
+      component: tools
+      commandLine: ./gradlew test
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: test
+        isDefault: true
+
+  - id: debug
+    exec:
+      component: tools
+      commandLine: ./gradlew bootRun --debug-jvm
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: debug
+        isDefault: true
+
+  - id: clean
+    exec:
+      component: tools
+      commandLine: ./gradlew clean
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+
+  - id: package
+    exec:
+      component: tools
+      commandLine: ./gradlew bootJar
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+
+  - id: docker-build
+    exec:
+      component: tools
+      commandLine: ./gradlew bootBuildImage
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: build
+
+  - id: deploy-local
+    exec:
+      component: tools
+      commandLine: skaffold dev --profile=local
+      workingDir: ${PROJECT_SOURCE}
+      group:
+        kind: deploy
