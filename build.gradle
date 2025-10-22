@@ -1,9 +1,6 @@
 plugins {
 	id 'org.springframework.boot' version '3.5.6'
 	id 'io.spring.dependency-management' version '1.1.7'
-    //id 'com.google.cloud.tools.jib' version '3.4.2'
-	id "org.sonarqube" version '6.3.1.5724'
-	//id 'org.cyclonedx.bom' version '1.10.0'
 	id 'java'
 }
 
@@ -23,14 +20,6 @@ configurations {
 		extendsFrom developmentOnly
 	}
 }
-
-sonarqube {
-  properties {
-    property "sonar.projectKey", "jahpola_spring-portti"
-    property "sonar.organization", "jahpola"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-} 
 
 repositories {
 	mavenCentral()
