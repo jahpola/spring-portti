@@ -69,7 +69,7 @@ dependencies {
 	implementation 'com.github.ben-manes.caffeine:caffeine:3.2.3'
     implementation 'org.springframework.boot:spring-boot-micrometer-tracing'
     implementation 'org.springframework.boot:spring-boot-starter-opentelemetry'
-    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
     testImplementation 'org.springframework.boot:spring-boot-micrometer-tracing-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-actuator-test'

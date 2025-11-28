@@ -37,11 +37,15 @@ management:
       # Micrometer Metrics configures this attribute with "unknown value".
       # It should probably be autoconfigured correctly by Spring Boot.
       "service.name": ${spring.application.name}
+    tracing:
+      export:
+        otlp:
+          endpoint: http://otel-collector:4318/v1/traces
+  otlp:
+    metrics:
+      export:
+        url: http://otel-collector:4318/v1/metrics
       
-  #otlp:
-   #tracing:
-     #endpoint: http://otel-collector:4318/v1/traces
-     #endpoint: http://alloy.alloy.svc:12345/
 
 logging:
 #  structured:
