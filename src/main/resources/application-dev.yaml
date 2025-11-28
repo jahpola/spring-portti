@@ -2,6 +2,8 @@ server:
   shutdown: graceful
 
 spring:
+  main:
+    banner-mode: "off"
   application:
     name: portti
   cloud:
@@ -36,16 +38,19 @@ management:
       cluster: local
       # Micrometer Metrics configures this attribute with "unknown value".
       # It should probably be autoconfigured correctly by Spring Boot.
-      #"service.name": ${spring.application.name}
+      #"service.name": oritti
     tracing:
       export:
         otlp:
-          enabled: false
+          enabled: true
+          endpoint: http://otel-collector:4318/v1/traces
   otlp:
     metrics:
       export:
-        enabled: false
+        enabled: true
+        url: http://otel-collector:4318/v1/metrics
       
+
 logging:
 #  structured:
 #    format:
