@@ -19,7 +19,6 @@ spec:
       containers:
       - name: portti
         image: public.ecr.aws/kerminator/spring-portti:latest
-        imagePullPolicy: Never
         ports:
         - name: http
           containerPort: 8080

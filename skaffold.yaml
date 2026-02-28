@@ -32,9 +32,9 @@ profiles:
       kustomize:
         paths:
           - manifests/overlays/local
-  # - name: playground
-  #   deploy:
-  #     kustomize:
-  #       paths: 
-  #         - manifests/overlays/dev
-  #     kubeContext: playground
+  - name: playground
+    deploy:
+      kustomize:
+        paths: 
+          - manifests/overlays/dev
+      kubeContext: playground
