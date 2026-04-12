@@ -19,7 +19,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: 'health,prometheus,metrics'
   endpoint:
     # For debugging gateway 
     gateway:
@@ -29,7 +29,7 @@ management:
         enabled: true
   tracing:
     sampling:
-      probability: 1.0
+      probability: 0.1
   opentelemetry:
     resource-attributes:
       application: ${spring.application.name}

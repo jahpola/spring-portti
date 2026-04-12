@@ -8,13 +8,15 @@ metadata:
     alb.ingress.kubernetes.io/tags: Environment=dev,Team=test
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/healthcheck-path: /actuator/health
-    alb.ingress.kubernetes.io/inbound-cidrs: 91.154.148.242/32
 spec:
   rules:
     - host: portti.kube.futucloud.com
       http:
         paths:
           - path: /*
-            backend: 
-              serviceName: portti
-              servicePort: 8080 
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: portti
+                port:
+                  number: 8080 
