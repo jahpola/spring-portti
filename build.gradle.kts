@@ -2,6 +2,7 @@ plugins {
     id("java")
     id("org.springframework.boot") version "4.0.6"
     id("io.spring.dependency-management") version "1.1.7"
+    id("org.sonarqube") version "7.3.0.8198"
 }
 
 group = "org.kerminator"
@@ -87,4 +88,13 @@ tasks.named<Test>("test") {
             "junit.jupiter.execution.parallel.enabled" to "true"
         )
     )
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "spring-portti")
+        property("sonar.organization", "jahpola")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.tests", "src/test/java")
+    }
 }
