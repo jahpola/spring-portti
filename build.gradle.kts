@@ -14,7 +14,7 @@ java {
     }
 }
 
-val developmentOnly by configurations
+val developmentOnly = configurations.getByName("developmentOnly")
 configurations {
     runtimeClasspath {
         extendsFrom(developmentOnly)
@@ -58,7 +58,7 @@ tasks.named<org.springframework.boot.gradle.tasks.bundling.BootBuildImage>("boot
     //environment.put("BP_NATIVE_IMAGE", "true")
 }
 
-val springCloudVersion by extra("2025.1.0")
+val springCloudVersion = "2025.1.2"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
