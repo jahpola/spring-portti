@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("org.springframework.boot") version "4.1.1"
+    id("org.springframework.boot") version "4.1.2"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.sonarqube") version "7.5.0.8588"
 }
@@ -58,13 +58,13 @@ tasks.named<org.springframework.boot.gradle.tasks.bundling.BootBuildImage>("boot
     //environment.put("BP_NATIVE_IMAGE", "true")
 }
 
-val springCloudVersion = "2025.1.3"
+val springCloudVersion = "2025.1.4"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webmvc")
     implementation("org.springframework.cloud:spring-cloud-starter-kubernetes-client-all")
-    implementation("com.github.ben-manes.caffeine:caffeine:3.3.0")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.3.1")
     implementation("org.springframework.boot:spring-boot-micrometer-tracing")
     implementation("org.springframework.boot:spring-boot-starter-opentelemetry")
     implementation("io.micrometer:micrometer-tracing-bridge-otel")
