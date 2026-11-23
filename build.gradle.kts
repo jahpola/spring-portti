@@ -1,8 +1,8 @@
 plugins {
     id("java")
-    id("org.springframework.boot") version "4.1.2"
+    id("org.springframework.boot") version "4.2.0"
     id("io.spring.dependency-management") version "1.1.7"
-    id("org.sonarqube") version "7.5.0.8588"
+    id("org.sonarqube") version "7.6.0.18749"
 }
 
 group = "org.kerminator"
@@ -58,7 +58,7 @@ tasks.named<org.springframework.boot.gradle.tasks.bundling.BootBuildImage>("boot
     //environment.put("BP_NATIVE_IMAGE", "true")
 }
 
-val springCloudVersion = "2025.1.4"
+val springCloudVersion = "2026.0.0"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
